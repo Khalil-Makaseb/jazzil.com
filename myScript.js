@@ -15,13 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
       </ul>
     </div>
   `;
-
-  // Function to toggle the menu based on screen width
   function updateMenu() {
     const existingMenu = section.querySelector(".side-menu");
 
     if (window.innerWidth >= 1024) {
-      // ✅ Desktop: show the menu if not present
       if (!existingMenu) {
         section.style.display = "flex";
         section.style.alignItems = "flex-start";
@@ -31,9 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
         section.insertAdjacentHTML("afterbegin", menuHTML);
       }
     } else {
-      // 📱 Mobile: remove the menu if it exists
+
       if (existingMenu) existingMenu.remove();
-      section.style.display = ""; // reset layout for mobile
+      section.style.display = ""; 
       section.style.alignItems = "";
       section.style.justifyContent = "";
       section.style.gap = "";
@@ -41,9 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Initial check
   updateMenu();
 
-  // Listen for window resize to handle live responsiveness
   window.addEventListener("resize", updateMenu);
 });
